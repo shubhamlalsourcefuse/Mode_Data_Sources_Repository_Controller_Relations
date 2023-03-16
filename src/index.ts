@@ -1,8 +1,9 @@
+import dotenv from "dotenv";
 import {ApplicationConfig, DatasourceRepositoryModelApplication} from './application';
-
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
+  dotenv.config()
   const app = new DatasourceRepositoryModelApplication(options);
   await app.boot();
   await app.start();
